@@ -1,0 +1,14 @@
+version: '3'
+services:
+  tc_frontend_prod:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: tc_frontend_prod
+    hostname: tc_frontend_prod
+    volumes:
+      - ../:/var/www/app
+      - ./nginx/tc_frontend_prod.conf:/etc/nginx/conf.d/tc_frontend_prod.conf
+    ports:
+      - "80:80"
+      - "443:443"
